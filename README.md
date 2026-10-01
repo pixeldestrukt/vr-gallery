@@ -163,13 +163,33 @@ private key.
 
 ```bash
 cast wallet import deployer --interactive     # once: paste the key, choose a password
-# fund it with Base Sepolia ETH from a faucet, then:
+# fund it with Base Sepolia ETH (see Test ETH below), then:
 make deploy PIECE_NAME=reaction PIECE_URL="https://dnuke.art/parameters/?work=reaction" \
             EPOCH_BLOCKS=8 STEPS=6500
 ```
 
 It prints the contract address. Put it in the gallery's `chain:` block (`chainId: 84532`,
 `rpc: https://sepolia.base.org`) and set the piece's `seed: chain, piece: 1`.
+
+### Test ETH
+
+We get Base Sepolia ETH from **[faucet.zalalena.com/base](https://faucet.zalalena.com/base)**. It
+needs no login and no mainnet balance, only a captcha. Claims repeat with a cooldown. Paste only an
+**address** there, never a key. A deploy costs ~0.00004 ETH and a mint far less, so a claim or
+two lasts a long time.
+
+Most faucets (QuickNode, Alchemy) want 0.001 *mainnet* ETH on the address as a bot filter, and
+Coinbase's needs an account. If ZalalenA is down, the fallback is the
+[pk910 Sepolia PoW faucet](https://sepolia-faucet.pk910.de/): mine Ethereum Sepolia ETH in the
+browser (address only), then bridge it to Base Sepolia through Base's L1StandardBridge on Sepolia
+(verified on-chain, v2.8.0):
+
+```bash
+cast send 0xfd0Bf71F60660E2f608ed56e1659C450eB113120 "depositETH(uint32,bytes)" 200000 0x \
+  --value 0.04ether --account deployer --rpc-url https://ethereum-sepolia-rpc.publicnode.com
+```
+
+Check a balance with `cast balance <address> --rpc-url https://sepolia.base.org --ether`.
 
 ### Deployments
 
