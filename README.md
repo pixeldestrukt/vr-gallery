@@ -171,6 +171,14 @@ make deploy PIECE_NAME=reaction PIECE_URL="https://dnuke.art/parameters/?work=re
 It prints the contract address. Put it in the gallery's `chain:` block (`chainId: 84532`,
 `rpc: https://sepolia.base.org`) and set the piece's `seed: chain, piece: 1`.
 
+### Deployments
+
+| network | Moments | pieces |
+|---|---|---|
+| Base Sepolia (84532) | [`0x7EA0DCcC87830Da0d20e4B1aCAdD7B4D6D1007Dc`](https://sepolia.basescan.org/address/0x7EA0DCcC87830Da0d20e4B1aCAdD7B4D6D1007Dc) | 1 · reaction ([dnuke.art/parameters](https://dnuke.art/parameters/?work=reaction)) |
+
+The deploy record is `contracts/broadcast/Deploy.s.sol/84532/run-latest.json`.
+
 ## Viewer URL
 
 | param | |
