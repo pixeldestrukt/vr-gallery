@@ -1,0 +1,26 @@
+# A broadcast room on a local chain: `make chain` starts anvil, deploys Moments and registers
+# drift as piece 1. Every viewer sees the same iteration; catch a moment and mint it.
+name: chain-demo
+title: Broadcast
+artist: vr-gallery demo
+room:
+  size: [7, 6, 3.2]
+chain:
+  rpc: http://127.0.0.1:8545
+  contract: "0x5FbDB2315678afecb367f032d93F642f64180aa3"   # anvil's first deploy from account 0
+  chainId: 31337
+exhibits:
+  - id: drift-live
+    title: Drift, broadcast
+    year: 2026
+    medium: Live shader, iterations from the chain
+    media:
+      live: { module: ../demo/pieces/drift.mjs, seed: chain, piece: 1 }
+    wall: north
+    at: 0
+    width: 2
+    story:
+      text: >
+        Each iteration's hash is derived from a block, so nobody can choose it and everyone in the
+        room sees the same one. Catch the frame you want and mint it while its iteration is still
+        live.

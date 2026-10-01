@@ -1,0 +1,15 @@
+{
+  "name": "vr-gallery",
+  "version": "0.0.1",
+  "description": "A light WebGL/WebXR gallery: a YAML file in, a walkable room out, in a browser or a headset. Every work carries its story.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Dan Newcome",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "art": "node examples/demo/make-art.mjs",
+    "vendor": "node scripts/vendor.mjs",
+    "test": "node test/run.mjs"
+  }
+}
