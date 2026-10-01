@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(process.env.ROOT || path.join(path.dirname(fileURLToPath(import.meta.url)), ".."));
 const PORT = +(process.env.PORT || 8080);
-const TYPES = { ".html": "text/html", ".mjs": "text/javascript", ".js": "text/javascript", ".json": "application/json", ".yaml": "text/yaml", ".yml": "text/yaml",
+const TYPES = { ".html": "text/html", ".css": "text/css", ".ico": "image/x-icon", ".woff2": "font/woff2", ".gif": "image/gif", ".mjs": "text/javascript", ".js": "text/javascript", ".json": "application/json", ".yaml": "text/yaml", ".yml": "text/yaml",
   ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".glb": "model/gltf-binary", ".mp4": "video/mp4" };
 
 createServer(async (req, res) => {
