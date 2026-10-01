@@ -1,7 +1,8 @@
 // Vendor the viewer into another site: copies viewer/ + src/ (what the page imports, nothing
 // else) to <dest>/, so a page on that site can embed it —
-//   <iframe src="/vr-gallery/viewer/?project=/parameters/gallery.yaml">
-// Re-run to update. `node scripts/vendor.mjs ../dnuke.art/vr-gallery`
+//   <iframe src="/vr-gallery/engine/viewer/?project=/vr-gallery/parameters/gallery.yaml">
+// Re-run to update. It REPLACES <dest>, so give it a folder of its own:
+//   `node scripts/vendor.mjs ../../dnewcome/dnuke.art/vr-gallery/engine`
 import { cpSync, mkdirSync, rmSync, writeFileSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

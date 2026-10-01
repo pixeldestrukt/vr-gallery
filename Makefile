@@ -32,6 +32,6 @@ deploy: ## Deploy Moments: make deploy [NET=base_sepolia ACCOUNT=deployer PIECE_
 art: ## Regenerate the demo room's art from its recipes
 	$(NODE) examples/demo/make-art.mjs
 
-vendor: ## Vendor the viewer into a site: make vendor DEST=../../dnewcome/dnuke.art/vr-gallery
+vendor: ## Vendor the viewer into a site (replaces DEST): make vendor DEST=../../dnewcome/dnuke.art/vr-gallery/engine
 	@test -n "$(DEST)" || (echo "usage: make vendor DEST=<dir>"; exit 2)
 	$(NODE) scripts/vendor.mjs $(DEST)

@@ -6,7 +6,7 @@ import {Moments} from "../src/Moments.sol";
 
 /// Deploy Moments, owned by whoever signs, and optionally register a first piece.
 ///
-///   PIECE_NAME=reaction PIECE_URL="https://dnuke.art/parameters/?work=reaction" \
+///   PIECE_NAME=reaction PIECE_URL="https://dnuke.art/vr-gallery/?work=reaction" \
 ///   EPOCH_BLOCKS=8 STEPS=6500 MAX_PER_ITERATION=3 PRICE_WEI=0 \
 ///   forge script script/Deploy.s.sol --rpc-url base_sepolia --account deployer --broadcast
 ///

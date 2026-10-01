@@ -164,7 +164,7 @@ private key.
 ```bash
 cast wallet import deployer --interactive     # once: paste the key, choose a password
 # fund it with Base Sepolia ETH (see Test ETH below), then:
-make deploy PIECE_NAME=reaction PIECE_URL="https://dnuke.art/parameters/?work=reaction" \
+make deploy PIECE_NAME=reaction PIECE_URL="https://dnuke.art/vr-gallery/?work=reaction" \
             EPOCH_BLOCKS=8 STEPS=6500
 ```
 
@@ -195,7 +195,7 @@ Check a balance with `cast balance <address> --rpc-url https://sepolia.base.org 
 
 | network | Moments | pieces |
 |---|---|---|
-| Base Sepolia (84532) | [`0x7EA0DCcC87830Da0d20e4B1aCAdD7B4D6D1007Dc`](https://sepolia.basescan.org/address/0x7EA0DCcC87830Da0d20e4B1aCAdD7B4D6D1007Dc) | 1 · reaction ([dnuke.art/parameters](https://dnuke.art/parameters/?work=reaction)) |
+| Base Sepolia (84532) | [`0x7EA0DCcC87830Da0d20e4B1aCAdD7B4D6D1007Dc`](https://sepolia.basescan.org/address/0x7EA0DCcC87830Da0d20e4B1aCAdD7B4D6D1007Dc) | 1 · reaction ([dnuke.art/vr-gallery](https://dnuke.art/vr-gallery/?work=reaction)) |
 
 The deploy record is `contracts/broadcast/Deploy.s.sol/84532/run-latest.json`.
 
@@ -228,11 +228,11 @@ open `http://localhost:8080/…` in the Quest browser. Otherwise use a tunnel or
 Same pattern as voxeled: vendor the viewer into the site and point an iframe at a gallery file.
 
 ```bash
-make vendor DEST=../../dnewcome/dnuke.art/vr-gallery
+make vendor DEST=../../dnewcome/dnuke.art/vr-gallery/engine   # replaces DEST: keep it its own folder
 ```
 
 ```html
-<iframe src="/vr-gallery/viewer/?project=/parameters/gallery.yaml"
+<iframe src="/vr-gallery/engine/viewer/?project=/vr-gallery/parameters/gallery.yaml"
         allow="xr-spatial-tracking; fullscreen"></iframe>
 ```
 
@@ -242,7 +242,7 @@ frame. To make WASD work without clicking into the frame first, forward keys:
 The viewer posts `{ vrGallery: "view", query }` whenever the view changes (a work opened, a moment
 caught), so the host page can mirror it in its own URL, and a shared link lands on the host page.
 
-dnuke.art/parameters is the first instance.
+[dnuke.art/vr-gallery](https://dnuke.art/vr-gallery/) is the first instance: a demo room hanging works from the Parameters show.
 
 ## Layout
 
