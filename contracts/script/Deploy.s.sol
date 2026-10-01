@@ -15,7 +15,10 @@ import {Moments} from "../src/Moments.sol";
 contract Deploy is Script {
     function run() external returns (Moments moments) {
         vm.startBroadcast();
-        moments = new Moments(msg.sender);
+        // The owner is whoever is broadcasting. Not msg.sender: with `--account` and no
+        // `--sender`, msg.sender in a script is Foundry's default address, not the signer.
+        (, address deployer,) = vm.readCallers();
+        moments = new Moments(deployer);
         string memory name = vm.envOr("PIECE_NAME", string(""));
         if (bytes(name).length > 0) {
             uint256 id = moments.addPiece(
